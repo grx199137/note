@@ -122,7 +122,7 @@
 ### 3.第三方模块创建服务器
     8-11例1) 创建服务器
     思路:首先用下载好的node软件,命令行npm install express下载第三方模块,用核心模块自带的path方法创建静态的网页通过服务器来显示
-    ```html
+    ```jade
     var express = require("express");
     var app = express();
     var path = require("path");
