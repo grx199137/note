@@ -122,7 +122,7 @@
 ### 3.第三方模块创建服务器
     8-11例1) 创建服务器
     思路:首先用下载好的node软件,命令行npm install express下载第三方模块,用核心模块自带的path方法创建静态的网页通过服务器来显示
-    ```jade
+    
     var express = require("express");
     var app = express();
     var path = require("path");
@@ -130,5 +130,19 @@
     app.listen(3000,function(){
     console.log("服务器已经开启");
     })
-    ```
+    
+### 4.渲染动态页面
+    8-12例1) 
+    思路:命令行npm install jade下载模板,set设置模板引擎,方法get设置路由响应,render渲染
+    var express = require("express");
+    var app = express();
+    var path = require("path");
+    app.use(express.static(path.join(__dirname,"public")));
+    app.set("view engine","jade");
+    app.get("/home",function(req,res){
+      res.render("home")
+      });
+    app.listen(3000,function(){
+      console.log("服务器已经开启")
+      })
 
