@@ -4,7 +4,7 @@
 
 
 # jquery
-## 选择器 $()
+## 一.选择器 $()
    引用jquery.js文件
    例:
    ```html 
@@ -17,7 +17,7 @@
    </body>
    ```
 
-## 方法 ()   ()里是参数
+## 二.方法 ()   ()里是参数
 1.属性:
        1)css()   改变样式
        2)index() 获取索引
@@ -43,9 +43,30 @@
        5)fadeIn  渐入
        6)fadeOut 渐出
        7)animate 自定义动画
-## 事件
+## 三.事件
 1.click 点击事件
-  
+  7-11例1）点击变换图片属性
+  思路:点击事件获取li的索引,然后通过索引重新设置images的路径
+  ```html
+  <body>
+    <img src="" alt="" id="pic">
+    <ul id="num-list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+    <script src="script/jquery.js"></script>
+    <script>
+    $("num-list li").click(function(){
+      var index = $(this).index();
+      var src = "images/" + index + ".jpg";
+      $("#pic").attr("src",src);
+    })
+    </script>
+  </body>
+  ```
 2.mouseenter  鼠标移入事件
 3.mouseleave  鼠标移出事件
 4.mousemove   数遍移动事件
