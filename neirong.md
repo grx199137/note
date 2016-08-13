@@ -16,7 +16,6 @@
    </script>   
    </body>
    ```
-
 ## 二.方法 ()   ()里是参数
 ###1.属性:
        1)css()   改变样式
@@ -68,7 +67,66 @@
   </body>
   ```
 ###2.mouseenter  鼠标移入事件
+  7-12例1) 下拉菜单
+  思路:鼠标移入ul时菜单下拉，移除时上卷的动画效果
+  ```html
+  <body>
+  <ul id="nav">
+    <li>
+      服装
+      <ul class="list">
+        <li>裤子</li>
+        <li>衣服</li>
+        <li>裙子</li>
+      </ul>
+    </li>
+    <li>
+      <a href="">价格</a>
+      <ul class="list">
+        <li>100</li>
+        <li>200</li>
+        <li>500</li>
+      </ul>
+    </li>
+    <li>
+      <a href="">品牌</a>
+      <ul class="list">
+        <li>骆驼</li>
+        <li>李宁</li>
+        <li>阿玛尼</li>
+      </ul>
+    </li>
+  </ul>
+  <script src="script/jquery.js"></script>
+  <script>
+      $("#nav>li").mouseenter(function(){
+        $(this).find("li").stop().slideDown(500);
+      }).mouseleave(function(){
+        $(this).find("li").stop().slideUp(500);
+      })
+  </script>
+  </body>
+  ```
 ###3.mouseleave  鼠标移出事件
 ###4.mousemove   数遍移动事件
 ###5.blur        失去焦点事件
+# javascript
+# node
+## 一.关于node
+### 1.node的含义
+  node就是通过js实现把html界面与数据分离的技术
+### 2.node的模块
+  1)自定义模块
+  2)核心模块
+  3)第三方模块
+### 3.第三方模块创建服务器
+  思路:首先用下载好的node软件,命令行npm install express下载第三方模块,用核心模块自带的path方法创建静态的网页通过服务器来显示
+  8-11例1) 创建服务器
+  var express = require("express");
+  var app = express();
+  var path = require("path");
+  app.use(express.static(path.join(__dirname,"public")));
+  app.listen(3000,function(){
+    console.log("服务器已经开启");
+  })
 
